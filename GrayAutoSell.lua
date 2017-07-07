@@ -1,7 +1,7 @@
 ﻿--[[
 	GrayAutoSell
 	Revision: $Id$
-	Version: 0.1.0
+	Version: 0.1.2
 	By: Thomas T. Cremers <ttcremers@gmail.com> 7-7-2017
 
 	This is an addon for World of Warcraft that automatically sells poor 
@@ -38,7 +38,7 @@ end
 
 function caEvent()
 	if event=="MERCHANT_SHOW" then
-		for bag = 0,0 do
+		for bag = 0, NUM_BAG_SLOTS do
 			for slot = 1, GetContainerNumSlots(bag) do
 				local itemLink = GetContainerItemLink(bag, slot)
 				
