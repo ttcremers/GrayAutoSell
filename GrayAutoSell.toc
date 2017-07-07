@@ -1,0 +1,8 @@
+## Interface: 11200
+## Title: |cFFFFFFFFGrayOutSell|r |cFF00FF00-=Elysium=-|r
+## Notes: Automatically sells all your gray bag items when you interact with a marchant. How are ya! |cFF00FF00 Plugin: v0.1.0|r
+## Author: Thomas Cremers (Teitr@Elysium-Darrowshire)
+## Version: 0.1.0
+## Revision: $Id:$
+GrayAutoSell.lua
+GrayAutoSell.xml
