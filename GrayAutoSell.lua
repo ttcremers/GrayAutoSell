@@ -1,7 +1,7 @@
 ﻿--[[
 	GrayAutoSell
 	Revision: $Id$
-	Version: 0.1.2
+	Version: 0.1.3
 	By: Thomas T. Cremers <ttcremers@gmail.com> 7-7-2017
 
 	This is an addon for World of Warcraft that automatically sells poor 
