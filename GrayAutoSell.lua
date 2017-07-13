@@ -81,7 +81,7 @@ function caEvent()
 	end
 end
 
-local function debug(text)
+function debug(text)
 	if DEBUG then
 		DEFAULT_CHAT_FRAME:AddMessage(text)
 	end
