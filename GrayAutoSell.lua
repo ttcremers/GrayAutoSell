@@ -28,6 +28,20 @@
 -- marchant window opens and doesn't actually sell the item
 DEBUG = false
 
+local timer = CreateFrame("FRAME");
+--'duration' is in seconds and 'func' is the function that will be executed when the timer expires
+local function setTimer(duration, func, arg1, arg2)
+    local endTime = GetTime() + duration;
+
+    timer:SetScript("OnUpdate", function()
+        if(endTime < GetTime()) then
+            --time is up
+            func(arg1, arg2);
+            timer:SetScript("OnUpdate", nil);
+        end
+    end);
+end
+
 function caInit()
 	-- Notify the user that we're doing something 
     DEFAULT_CHAT_FRAME:AddMessage("Loading GrayAutoSell");
@@ -38,6 +52,7 @@ end
 
 function caEvent()
 	if event=="MERCHANT_SHOW" then
+		local delay = 0.1
 		for bag = 0, NUM_BAG_SLOTS do
 			for slot = 1, GetContainerNumSlots(bag) do
 				local itemLink = GetContainerItemLink(bag, slot)
@@ -51,8 +66,10 @@ function caEvent()
 						debug("Poor item found: "..name)
 						
 						-- Auto sells the item when merchant window is open
+						
 						if not DEBUG then
-							UseContainerItem(bag,slot)
+							delay = delay + 0.1
+							setTimer(delay, UseContainerItem, bag, slot)
 						else
 							debug("NOT SOLD: debug enabled")
 						end
@@ -64,7 +81,7 @@ function caEvent()
 	end
 end
 
-function debug(text)
+local function debug(text)
 	if DEBUG then
 		DEFAULT_CHAT_FRAME:AddMessage(text)
 	end
