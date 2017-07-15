@@ -6,8 +6,8 @@
 
   <Frame name="GrayAutoSell_Frame">
     <Scripts>
-    <OnEvent>caEvent();</OnEvent>
-    <OnLoad>caInit();</OnLoad>
+      <OnEvent>caEvent();</OnEvent>
+      <OnLoad>caInit();</OnLoad>
     </Scripts>
   </Frame>
 
